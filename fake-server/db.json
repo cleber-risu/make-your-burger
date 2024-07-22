@@ -101,7 +101,7 @@
         "Cheddar",
         "Pepino"
       ],
-      "status": "Solicitado"
+      "status": "Finalizado"
     },
     {
       "id": "10cb",
@@ -116,17 +116,7 @@
         "Cebola roxa",
         "Pepino"
       ],
-      "status": "Solicitado"
-    },
-    {
-      "id": "4e6d",
-      "nome": "Jose",
-      "carne": "Alcatra",
-      "pao": "3 Queijos",
-      "opcionais": [
-        "Bacon"
-      ],
-      "status": "Solicitado"
+      "status": "Finalizado"
     },
     {
       "id": "b7be",
@@ -137,15 +127,20 @@
         "Bacon",
         "Cheddar"
       ],
-      "status": "Solicitado"
+      "status": "Finalizado"
     },
     {
-      "id": "0595",
-      "nome": "Joaquina",
+      "id": "284c",
+      "nome": "Robin",
       "carne": "Maminha",
-      "pao": "3 Queijos",
+      "pao": "Italiano Branco",
       "opcionais": [
-        "Bacon"
+        "Bacon",
+        "Cheddar",
+        "Salame",
+        "Tomate",
+        "Cebola roxa",
+        "Pepino"
       ],
       "status": "Solicitado"
     }

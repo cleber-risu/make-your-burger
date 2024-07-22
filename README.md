@@ -1,19 +1,25 @@
-# make-your-burger
+<h1 align="center">Make Your Burger</h1>
 
-## Project setup
-```
-npm install
-```
+<p align="center">
+  <img alt="Make Yout Burger - Home" src=".github/01.jpg" width="100%">
+</p>
+<p align="center">
+  <img alt="Make Yout Burger - Pedidos" src=".github/02.jpg" width="100%">
+</p>
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 🚀 Tecnologias
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- HTML
+- CSS
+- JavaScript
+- VueJS
+
+## 💻 Projeto
+
+Um app web de pedidos de um Hamburgueria feito com o intuito de praticar e estudar VueJS.
+
+---
+
+Feito com ♥ by Cleber-Risu

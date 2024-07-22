@@ -10,7 +10,6 @@
         bread: null,
         meat: null,
         optionals: [],
-        status: 'Solicitado',
         msg: null
       }
     },
@@ -22,6 +21,36 @@
         this.breads = data.paes
         this.meats = data.carnes
         this.optionalData = data.opcionais
+      },
+      async createBurger(event) {
+        event.preventDefault();
+        
+        const data = {
+          nome: this.name,
+          carne: this.meat,
+          pao: this.bread,
+          opcionais: [...this.optionals],
+          status: 'Solicitado'
+        }
+
+        const dataJson = JSON.stringify(data)
+
+        const req = await fetch('http://localhost:3000/burgers', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: dataJson
+        })
+
+        const res = await req.json();
+
+        // todo - colocar uma msg do sistema
+
+        // todo - limpar mensagem
+
+        this.name = ''
+        this.meat = ''
+        this.bread = ''
+        this.optionals = ''
       }
     },
     mounted() {
@@ -34,7 +63,7 @@
   <div>
     <p>Componente de mensagem</p>
     <div>
-      <form id="burger-form">
+      <form id="burger-form" @submit="createBurger($event)">
 
         <div class="input-container">
           <label for="name">Nome do cliente:</label>

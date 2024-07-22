@@ -1,6 +1,32 @@
 <script>
   export default {
-    name: 'BurgerForm'
+    name: 'BurgerForm',
+    data() {
+      return {
+        breads: null,
+        meats: null,
+        optionalData: null,
+        name: null,
+        bread: null,
+        meat: null,
+        optionals: [],
+        status: 'Solicitado',
+        msg: null
+      }
+    },
+    methods: {
+      async getIngredients() {
+        const req = await fetch('http://localhost:3000/ingredientes')
+        const data = await req.json();
+        
+        this.breads = data.paes
+        this.meats = data.carnes
+        this.optionalData = data.opcionais
+      }
+    },
+    mounted() {
+      this.getIngredients()
+    }
   }
 </script>
 
@@ -9,27 +35,44 @@
     <p>Componente de mensagem</p>
     <div>
       <form id="burger-form">
+
         <div class="input-container">
           <label for="name">Nome do cliente:</label>
           <input type="text" id="name" name="name" v-model="name" placeholder="Digite o seu nome">
         </div>
+
         <div class="input-container">
           <label for="bread">Escolha o pão:</label>
           <select name="bread" id="bread" v-model="bread">
             <option selected disabled>Selecione o seu pão</option>
-            <option value=""></option>
+            <option v-for="bread in breads" :key="bread.id" :value="bread.tipo">
+              {{ bread.tipo }}
+            </option>
           </select>
         </div>
+
+        <div class="input-container">
+          <label for="meat">Escolha a carne:</label>
+          <select name="meat" id="meat" v-model="meat">
+            <option selected disabled>Selecione a sua carne</option>
+            <option v-for="meat in meats" :key="meat.id" :value="meat.tipo">
+              {{ meat.tipo }}
+            </option>
+          </select>
+        </div>
+
         <div id="opcionais-container" class="input-container">
           <label id="opcionais-title" for="optional">Selecione os opcionais:</label>
-          <div class="checkbox-container">
-            <input type="checkbox" name="optional" v-model="optional" value="">
-            <span>value</span>
+          <div class="checkbox-container" v-for="optional in optionalData" :key="optional.id">
+            <input type="checkbox" name="optional" v-model="optionals" :value="optional.tipo">
+            <span>{{ optional.tipo }}</span>
           </div>
         </div>
+
         <div class="input-container">
           <input type="submit" value="Criar meu Burger" class="submit-btn">
         </div>
+
       </form>
     </div>
   </div>
